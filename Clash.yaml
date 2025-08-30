@@ -2,68 +2,12 @@ log-level: info
 ipv6: true
 profile:
   store-selected: true
-  store-fake-ip: true
 
 tun:
   enable: true
-  stack: system
+  stack: gvisor
   dns-hijack:
     - 0.0.0.0:53
-  auto-detect-interface: false
-  auto-route: false
-  auto-redirect: false
-  strict-route: false
-  endpoint-independent-nat: true
-
-sniffer:
-  enable: true
-  override-destination: true
-  sniff:
-    QUIC:
-      ports:
-      - 443
-    TLS:
-      ports:
-      - 443
-      - 8443
-    HTTP:
-      ports:
-      - 80
-      - 8080-8880
-      override-destination: true
-  force-domain:
-    - "+.netflix.com"
-    - "+.nflxvideo.net"
-    - "+.amazonaws.com"
-    - "+.media.dssott.com"
-  skip-domain:
-    - "+.apple.com"
-    - Mijia Cloud
-    - dlg.io.mi.com
-    - "+.oray.com"
-    - "+.sunlogin.net"
-    - "+.push.apple.com"
-  parse-pure-ip: true
-  force-dns-mapping: true
-
-dns:
-  enable: true
-  listen: 0.0.0.0:7874
-  ipv6: true
-  default-nameserver:
-    - 114.114.114.114
-    - tls://223.5.5.5:853
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter:
-    - '*.lan'
-    - localhost.ptlogin2.qq.com
-    - geosite:cn
-  fake-ip-filter-mode: blacklist
-  respect-rules: false
-  nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
 
 proxy-providers:
   provider1:
